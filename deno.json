@@ -5,8 +5,8 @@
     "path": "./deno.lock"
   },
   "tasks": {
-    "render": "deno run --allow-read --allow-write --allow-env --allow-sys=homedir scripts/render_adoc.ts",
-    "watch": "deno run --watch=index.adoc,chapters,includes,css,assets --allow-read --allow-write --allow-env --allow-sys=homedir scripts/render_adoc.ts",
+    "render": "deno run --allow-read --allow-write --allow-env --allow-run --allow-sys=homedir scripts/render_adoc.ts",
+    "watch": "deno run --watch=index.adoc,chapters,includes,css,assets --allow-read --allow-write --allow-env --allow-run --allow-sys=homedir scripts/render_adoc.ts",
     "clean": "deno run --allow-read --allow-write scripts/clean_dist.ts",
     "check": "deno check scripts/render_adoc.ts scripts/clean_dist.ts",
     "fmt": "deno fmt scripts/**/*.ts *.adoc chapters/**/*.adoc includes/**/*.adoc README.md AGENTS.md"

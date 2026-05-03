@@ -1,21 +1,12 @@
 # PDF export notes
 
-Preferred first workflow:
+`deno task render` now renders both:
 
-1. `deno task render`
-2. Open `dist/index.html` in Chrome / Edge.
-3. Use Print → Save as PDF.
+1. `dist/index.html`
+2. `dist/AsciiDoc Feature Demo for Compact Pages.pdf`
 
-Why not automate PDF immediately?
+PDF export uses installed Chrome / Edge in headless mode, so it keeps the
+browser CSS path without adding Playwright, Puppeteer, Ruby, or `node_modules/`.
 
-- Chrome print is already reliable and visually close to your browser preview.
-- Playwright/Puppeteer adds heavier dependencies and may create a larger toolchain.
-- Asciidoctor PDF is powerful, but it is Ruby-based and uses a different theme system than browser CSS.
-
-Later optional headless Chrome idea:
-
-```bash
-chrome --headless --disable-gpu --print-to-pdf=dist/index.pdf dist/index.html
-```
-
-Windows path to Chrome varies, so this is intentionally not wired as a default task.
+If Chrome / Edge is not installed in a standard location, set `CHROME_PATH` or
+`CHROME_BIN` to the browser executable.
