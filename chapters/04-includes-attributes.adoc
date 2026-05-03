@@ -25,6 +25,6 @@ include::../includes/snippets/toolchain-summary.adoc[]
 :imagesdir: assets
 :source-highlighter: highlight.js
 
-include::chapters/04-includes-attributes.adoc[]
-include::includes/snippets/toolchain-summary.adoc[]
+\include::chapters/04-includes-attributes.adoc[]
+\include::includes/snippets/toolchain-summary.adoc[]
 ----

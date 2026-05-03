@@ -30,5 +30,5 @@ include::../includes/snippets/toolchain-summary.adoc[]
 :linkcss:
 :imagesdir: assets
 
-include::chapters/00-orientation.adoc[]
+\include::chapters/00-orientation.adoc[]
 ----
