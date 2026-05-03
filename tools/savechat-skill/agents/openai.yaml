@@ -1,0 +1,4 @@
+interface:
+  display_name: "Savechat"
+  short_description: "Save/update collapsible session logs"
+  default_prompt: "savechat YYMMDDx topic"

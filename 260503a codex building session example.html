@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codex Session Reference - 2026-05-03</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #fff;
+      --ink: #172033;
+      --muted: #5d687b;
+      --line: #d8deea;
+      --accent: #143c5a;
+      --accent-2: #b45f30;
+      --code: #eef3f4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 24px clamp(18px, 4vw, 48px);
+      border-bottom: 5px solid var(--accent-2);
+    }
+
+    main {
+      width: min(1120px, calc(100vw - 32px));
+      margin: 24px auto 56px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 26px;
+    }
+
+    .sub {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    details {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 14px 0;
+      box-shadow: 0 8px 24px rgba(23, 32, 51, 0.07);
+      overflow: hidden;
+    }
+
+    details[open] summary {
+      border-bottom: 1px solid var(--line);
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 13px 16px;
+      color: var(--accent);
+      font-weight: 700;
+      list-style-position: inside;
+    }
+
+    .content {
+      padding: 16px;
+    }
+
+    h2 {
+      margin: 26px 0 10px;
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    ul {
+      margin-top: 8px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    code {
+      background: var(--code);
+      border-radius: 4px;
+      padding: 0.1em 0.35em;
+      font-family: Consolas, "Cascadia Mono", "Liberation Mono", monospace;
+      font-size: 0.92em;
+    }
+
+    pre {
+      margin: 12px 0;
+      padding: 12px 14px;
+      overflow: auto;
+      background: var(--code);
+      border-left: 5px solid var(--accent);
+      font: 13px/1.45 Consolas, "Cascadia Mono", "Liberation Mono", monospace;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.94em;
+    }
+
+    .ok {
+      color: #166534;
+      font-weight: 700;
+    }
+
+    .warn {
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .time {
+      display: inline-block;
+      min-width: 5.5em;
+      color: var(--accent-2);
+      font-family: Consolas, "Cascadia Mono", "Liberation Mono", monospace;
+      font-size: 0.92em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Codex Session Reference</h1>
+    <p class="sub">AsciiDoc compact-pages demo, 2026-05-03, workspace <code>V:\~prj\260503-codex-adoc-test</code></p>
+  </header>
+
+  <main>
+    <p class="note">
+      This is a curated local reference for the session, not a byte-for-byte export of the Codex app UI.
+      It preserves the important context, decisions, commands, commits, and follow-up notes in collapsible sections.
+      Times are reconstructed from commit/file timestamps and ordered chat context, so treat them as approximate unless marked as commit/file evidence.
+    </p>
+
+    <details open>
+      <summary><span class="time">timeline</span> Approximate Session Timeline</summary>
+      <div class="content">
+        <p class="note">
+          Exact per-message timestamps were not available from the Codex app. This timeline was reconstructed from git commit times, file timestamps, generated output timestamps, and the observed order of the chat.
+        </p>
+        <ul>
+          <li><code>~18:50</code> Initial repo inspection, loaded <code>AGENTS.md</code>, identified intended AsciiDoc/CSS edit targets.</li>
+          <li><code>19:03</code> Commit evidence: <code>18b244c Fix AsciiDoc demo formatting</code>.</li>
+          <li><code>~19:05</code> Rendered with <code>deno task render</code> and opened <code>dist/index.html</code>.</li>
+          <li><code>~19:12</code> Investigated unwanted PDF breaks and found print CSS forcing <code>h2/h3</code> page breaks.</li>
+          <li><code>~19:20</code> Regenerated PDF with Chrome headless for verification; heading-only pages disappeared after CSS override.</li>
+          <li><code>19:51</code> Commit evidence: <code>41aaa84 no page break before first h1</code>.</li>
+          <li><code>~19:55</code> VS Code opened on <code>V:\~prj\260503-codex-adoc-test</code>; discussed Codex extension context separation.</li>
+          <li><code>20:01</code> File evidence: regenerated <code>dist/index.html</code> and <code>dist/AsciiDoc Feature Demo for Compact Pages.pdf</code>.</li>
+          <li><code>20:04</code> Commit evidence: <code>b6246dd Add headless Chrome PDF export</code>.</li>
+          <li><code>~20:08</code> Checked GitHub push/auth state; later confirmed <code>origin/main</code> matched local <code>b6246dd</code>.</li>
+          <li><code>20:18</code> File evidence: created <code>.codex/session-reference-2026-05-03.html</code>.</li>
+          <li><code>20:18</code> File evidence: copied project-root reference as <code>260503a codex building session example.html</code>.</li>
+          <li><code>20:26</code> File evidence: created <code>codex-enhancements-tips.md</code>.</li>
+          <li><code>20:28</code> File evidence: updated this root collapsible reference with latest notes.</li>
+          <li><code>~20:32</code> User identified ChatGPT Lyra and Codex/Lyra as unified in this workflow.</li>
+          <li><code>~20:34</code> Added reusable <code>savechat YYMMDDx topic</code> pattern and corrected root file id to <code>260503a</code>.</li>
+          <li><code>~20:40</code> Created a real local Codex skill at <code>C:\Users\petra\.codex\skills\savechat</code>.</li>
+          <li><code>~20:50</code> Copied the savechat skill definition into <code>tools/savechat-skill/</code> and added optional Python runtime helper scripts under <code>tools/python-update/</code>.</li>
+          <li><code>~20:55</code> Updated the <code>savechat</code> skill so bare <code>savechat</code> updates the newest project-root <code>YYMMDDx *.html</code> log.</li>
+          <li><code>~21:00</code> Reviewed project-local <code>.codex/skills/asciidoc-pages</code> and clarified that it was scaffolded/versioned but not actively loaded as a Codex skill in this session.</li>
+          <li><code>~21:05</code> First bare <code>savechat</code> invocation selected this newest root <code>YYMMDDx *.html</code> log and updated it in place.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details open>
+      <summary><span class="time">~18:50</span> Session Ground Rules And Repo Context</summary>
+      <div class="content">
+        <ul>
+          <li>Workspace path for user-facing references: <code>V:\~prj\260503-codex-adoc-test</code>.</li>
+          <li>Underlying Windows path exists, but user asked to use the <code>V:</code> subst path in conversation.</li>
+          <li>Loaded project instructions: <code>AGENTS.md</code> at repo root.</li>
+          <li>Source of truth is AsciiDoc, especially <code>index.adoc</code> and <code>chapters/*.adoc</code>.</li>
+          <li>Generated output belongs in <code>dist/</code> and is ignored by git.</li>
+          <li>Initial constraint: no dependency installs; avoid changing Deno render pipeline unless explicitly requested.</li>
+          <li>Later the user explicitly requested integrating headless Chrome PDF generation into the build, so the render pipeline was updated.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">19:03</span> Initial Formatting Fix</summary>
+      <div class="content">
+        <p>Task: fix formatting issues in the AsciiDoc/CSS demo.</p>
+        <ul>
+          <li>Moved real section headings such as <code>=== Rendered idea</code> outside panels.</li>
+          <li>Replaced an inner panel heading with an AsciiDoc block title.</li>
+          <li>Updated the audio/video page so it shows rendered media macros and full source syntax below.</li>
+          <li>Added CSS rules so listing/source blocks are not vertically clipped.</li>
+        </ul>
+        <p>Files committed:</p>
+        <ul>
+          <li><code>chapters/01-page-breaks-headings.adoc</code></li>
+          <li><code>chapters/10-audio-video-pass.adoc</code></li>
+          <li><code>chapters/11-custom-macros-future.adoc</code></li>
+          <li><code>css/mixworx-adoc-demo.css</code></li>
+        </ul>
+        <p>Commit:</p>
+        <pre>18b244c Fix AsciiDoc demo formatting</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~19:00</span> Wide Side-By-Side Diff Viewer</summary>
+      <div class="content">
+        <p>The chat table diff was too narrow, so a temporary local HTML diff viewer was created:</p>
+        <pre>V:\~prj\260503-codex-adoc-test\.codex\proposed-formatting-diff.html</pre>
+        <p class="note">This was not committed. It was only for local review.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~19:05</span> Rendering And PDF Checks</summary>
+      <div class="content">
+        <p>Render command used:</p>
+        <pre>deno task render</pre>
+        <p>Important observations:</p>
+        <ul>
+          <li>Inside the sandbox, <code>deno</code> was initially not on PATH.</li>
+          <li>With approved execution, system Deno was available and render succeeded.</li>
+          <li>The generated HTML path is <code>dist/index.html</code>.</li>
+          <li>The generated PDF path later became <code>dist/AsciiDoc Feature Demo for Compact Pages.pdf</code>.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~19:12</span> Page Break Investigation</summary>
+      <div class="content">
+        <p>The user saw unwanted breaks in the PDF. Source scan found chapter files with leading explicit page breaks:</p>
+        <pre>&lt;&lt;&lt;
+
+== Chapter heading</pre>
+        <p>Those were briefly removed from all chapter files, while preserving the <code>&lt;&lt;&lt;</code> inside the chapter 01 syntax example.</p>
+        <p>PDF inspection then showed that the real heading-only pages were caused by print CSS, not only source page-break markers.</p>
+        <p>Relevant CSS rules:</p>
+        <pre>css/mixworx-adoc-demo.css:
+h2 {
+  break-before: page;
+  page-break-before: always;
+}
+
+css/mixworx-golo.css:
+h2, h3 { page-break-before: always; }</pre>
+        <p>Fix applied in additive CSS:</p>
+        <pre>@media print {
+  h2, h3 {
+    break-before: auto;
+    page-break-before: auto;
+  }
+}</pre>
+        <p>The stale chapter 01 note was updated to say print mode keeps headings attached to content.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">19:51</span> Explicit Chapter Page Breaks Restored</summary>
+      <div class="content">
+        <p>The user then asked for explicit AsciiDoc page breaks before each chapter heading, except the first root title at the start of <code>index.adoc</code>.</p>
+        <ul>
+          <li><code>index.adoc</code> still starts with root title <code>= AsciiDoc Feature Demo for Compact Pages</code>.</li>
+          <li>Each chapter file starts with <code>&lt;&lt;&lt;</code> before its <code>==</code> heading.</li>
+          <li>The print CSS still prevents <code>h2/h3</code> from being separated from their content by browser CSS rules.</li>
+        </ul>
+        <p>Commit that captured this state:</p>
+        <pre>41aaa84 no page break before first h1</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~19:55</span> VS Code And Codex Extension Notes</summary>
+      <div class="content">
+        <p>VS Code was launched on the project using the subst path:</p>
+        <pre>code V:\~prj\260503-codex-adoc-test</pre>
+        <p>The user asked whether the VS Code Codex extension would share this Codex app context.</p>
+        <p>Answer: not automatically. Treat the Codex app and VS Code extension as separate sessions unless context is explicitly synced.</p>
+        <p>Suggested handoff note:</p>
+        <pre>Repo: V:\~prj\260503-codex-adoc-test
+This is an AsciiDoc compact-pages demo.
+Do not install deps unless explicitly asked.
+Use .adoc as source of truth.
+dist/ is generated output.
+Current state: chapter page breaks use &lt;&lt;&lt;; print CSS neutralizes h2/h3 forced breaks.</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">20:04</span> Headless Chrome PDF Export Integration</summary>
+      <div class="content">
+        <p>The user explicitly asked to integrate headless Chrome PDF generation into the build.</p>
+        <p>Changes:</p>
+        <ul>
+          <li><code>scripts/render_adoc.ts</code> now finds Chrome/Edge, renders HTML, copies CSS/assets, and prints PDF.</li>
+          <li><code>deno.json</code> render/watch tasks now include <code>--allow-run</code>.</li>
+          <li><code>scripts/pdf-notes.md</code> now documents automated PDF export.</li>
+        </ul>
+        <p>No npm packages, Playwright, Puppeteer, Ruby, or <code>node_modules/</code> were added.</p>
+        <p>Verified:</p>
+        <ul>
+          <li><code>deno fmt</code> passed.</li>
+          <li><code>deno task check</code> passed after adding an explicit type cast for the Asciidoctor.js factory boundary.</li>
+          <li><code>deno task render</code> produced both HTML and PDF.</li>
+          <li>Generated PDF was readable and had 14 pages.</li>
+        </ul>
+        <p>Commit:</p>
+        <pre>b6246dd Add headless Chrome PDF export</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~20:08</span> Git Push And Auth Notes</summary>
+      <div class="content">
+        <p>Initial command-line <code>git push</code> timed out, probably waiting for auth.</p>
+        <p>Safe auth checks showed:</p>
+        <ul>
+          <li>Remote uses HTTPS: <code>https://github.com/apws/260503-codex-adoc-test.git</code>.</li>
+          <li>No credential helper was configured in repo, global, or system Git config.</li>
+          <li>TortoiseGit likely had its own working auth path.</li>
+        </ul>
+        <p>Later status showed the push had succeeded, likely via TortoiseGit:</p>
+        <pre>b6246dd (HEAD -&gt; main, origin/main, origin/HEAD) Add headless Chrome PDF export</pre>
+        <p class="ok">Final repo status at that point: clean and synced with origin.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">20:18</span> Session Reference Artifact</summary>
+      <div class="content">
+        <p>The user asked whether the Codex app chat, with its dynamic foldings, could be persisted for learning/reference.</p>
+        <p>Native Codex UI export was not available from the agent side, so a curated collapsible HTML reference was created instead.</p>
+        <p>Files created:</p>
+        <ul>
+          <li><code>V:\~prj\260503-codex-adoc-test\.codex\session-reference-2026-05-03.html</code> as a local scratch/reference copy.</li>
+          <li><code>V:\~prj\260503-codex-adoc-test\260503a codex building session example.html</code> as the project-root copy.</li>
+        </ul>
+        <p class="note">
+          This file is the project-root collapsible reference. It is curated, not a byte-for-byte transcript.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">20:26</span> Codex UI Enhancement Feedback</summary>
+      <div class="content">
+        <p>The user noted that Codex active-work status can be hard to see:</p>
+        <ul>
+          <li>The left sidebar may show red activity, but the central "Working for ..." state is grey and subtle.</li>
+          <li>In fullscreen, it can be unclear whether Codex is still working, waiting for permission, stalled, or finished.</li>
+          <li>An indeterminate animated progress indicator or rolling activity bullets would help, even without ETA.</li>
+        </ul>
+        <p>Since the agent cannot configure Codex app chrome or submit internal OpenAI feedback directly, a project-root accumulator file was created:</p>
+        <pre>V:\~prj\260503-codex-adoc-test\codex-enhancements-tips.md</pre>
+        <p>Tags used for future feedback/search:</p>
+        <pre>[codex-ui][status-visibility][accessibility]</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">20:28</span> Current Untracked Reference Files</summary>
+      <div class="content">
+        <p>After creating local/project reference artifacts, these files were untracked:</p>
+        <pre>.codex/session-reference-2026-05-03.html
+260503a codex building session example.html
+codex-enhancements-tips.md</pre>
+        <p class="note">
+          These are documentation/reference artifacts, not generated <code>dist/</code> outputs.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~20:32</span> Lyra Context</summary>
+      <div class="content">
+        <p>The user noted that "Lyra" is not only an earlier scaffold commit label, but part of the broader assistant/persona continuity in this workflow:</p>
+        <blockquote>
+          ChatGPT Lyra is unified with Codex; both are Lyra now.
+        </blockquote>
+        <p class="note">
+          This matters as project memory/context: the repo already had a Lyra-generated scaffold commit, and this Codex session continued that lineage through refinement, rendering, PDF automation, and session logging.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~20:34</span> Reusable Savechat Pattern</summary>
+      <div class="content">
+        <p>The user suggested a future command like <code>savechat YYMMDDx topic</code>. A practical prompt pattern for future sessions:</p>
+        <pre>savechat 260503a codex building session example
+
+Create or update a project-root collapsible HTML session reference.
+Use the filename "{id} {topic}.html".
+Capture:
+- workspace and repo context
+- major decisions
+- commands run
+- files changed
+- commits and push status
+- gotchas and lessons learned
+- approximate timeline from git/file timestamps where exact chat timestamps are unavailable
+- reusable prompts or skill ideas
+
+Also optionally maintain a .codex/local scratch copy if useful.</pre>
+        <p class="note">
+          This could become a real Codex skill later. The useful behavior would be parameterized by id/topic, output format, and whether to include exact command outputs or only curated summaries.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~20:40</span> Local Savechat Skill Created</summary>
+      <div class="content">
+        <p>A real local Codex skill was created so future sessions can recognize requests like:</p>
+        <pre>savechat 260503a codex building session example</pre>
+        <p>Skill location:</p>
+        <pre>C:\Users\petra\.codex\skills\savechat</pre>
+        <p>Skill files:</p>
+        <ul>
+          <li><code>SKILL.md</code> with trigger/workflow instructions.</li>
+          <li><code>agents/openai.yaml</code> with display metadata.</li>
+          <li><code>assets/session-template.html</code> as a reusable collapsible HTML shell.</li>
+        </ul>
+        <p>Validation note:</p>
+        <p class="note">
+          The official <code>quick_validate.py</code> script could not run in the bundled Python because <code>yaml</code> / PyYAML was not installed. No dependency was installed. A manual structural check confirmed the required files and frontmatter are present.
+        </p>
+        <p>Later update:</p>
+        <p>
+          The skill now treats bare <code>savechat</code> as "update the most recently modified project-root HTML log matching <code>YYMMDDx *.html</code>".
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~20:50</span> Project Tools Artifacts</summary>
+      <div class="content">
+        <p>The global <code>savechat</code> skill was copied into the project for learning/reference and git visibility:</p>
+        <pre>V:\~prj\260503-codex-adoc-test\tools\savechat-skill\SKILL.md
+V:\~prj\260503-codex-adoc-test\tools\savechat-skill\agents\openai.yaml
+V:\~prj\260503-codex-adoc-test\tools\savechat-skill\assets\session-template.html</pre>
+        <p>The real active skill remains in the user Codex skills directory:</p>
+        <pre>C:\Users\petra\.codex\skills\savechat</pre>
+        <p>Optional Python helper files were added for documenting/checking missing packages:</p>
+        <pre>V:\~prj\260503-codex-adoc-test\tools\python-update\README.md
+V:\~prj\260503-codex-adoc-test\tools\python-update\check_optional_python_packages.py
+V:\~prj\260503-codex-adoc-test\tools\python-update\install_optional_python_packages.py</pre>
+        <p>Check result against the Codex bundled Python:</p>
+        <pre>MISSING yaml     PyYAML; needed by skill-creator quick_validate.py
+MISSING fitz     PyMuPDF; useful for richer PDF inspection
+OK      pypdf    pypdf; fallback PDF text/page inspection</pre>
+        <p class="note">
+          No package installation was run. The install helper is deliberate/opt-in and uses <code>python -m pip install PyYAML PyMuPDF</code> for whichever Python interpreter launches it.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~21:00</span> Project-Local AsciiDoc Skill Review</summary>
+      <div class="content">
+        <p>The project contains a local skill-like artifact:</p>
+        <pre>V:\~prj\260503-codex-adoc-test\.codex\skills\asciidoc-pages\SKILL.md</pre>
+        <p>Review findings:</p>
+        <ul>
+          <li>It was added by the earlier Lyra scaffold commit: <code>42df9a0 Lyra generated scaffold for asciidoctorjs with deno2 toolchain</code>.</li>
+          <li>It documents repo-specific behavior: AsciiDoc source of truth, Deno 2 + Asciidoctor.js, no <code>node_modules/</code> by default, and <code>deno task render</code>.</li>
+          <li>It is tracked in git, along with <code>.codex/config.example.toml</code>.</li>
+          <li>It did not appear in the active skill list for this Codex session, so it was not automatically invoked here.</li>
+          <li>The session behavior was driven mainly by <code>AGENTS.md</code>, user instructions, and later the new global <code>savechat</code> skill.</li>
+        </ul>
+        <p>Conclusion:</p>
+        <p>
+          Keep <code>AGENTS.md</code> as the reliable project instruction source. Keep <code>.codex/skills/asciidoc-pages</code> as versioned learning/scaffold metadata if desired. Use global skills, such as <code>C:\Users\petra\.codex\skills\savechat</code>, for reusable behavior across projects.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~21:05</span> First Bare Savechat Run</summary>
+      <div class="content">
+        <p>The user invoked:</p>
+        <pre>savechat</pre>
+        <p>The updated skill rule was applied:</p>
+        <ul>
+          <li>Search project root for HTML files matching <code>^\d{6}[a-z] .+\.html$</code>.</li>
+          <li>Pick the most recently modified match.</li>
+          <li>Update it in place.</li>
+        </ul>
+        <p>Selected target:</p>
+        <pre>V:\~prj\260503-codex-adoc-test\260503a codex building session example.html</pre>
+        <p class="note">
+          This validates the intended plain-language trigger pattern, though newly created global skills may still require a fresh Codex session before they show in the active skills list automatically.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">reference</span> Useful Commands</summary>
+      <div class="content">
+        <pre>cd V:\~prj\260503-codex-adoc-test
+
+deno task render
+deno task check
+git status --short --branch
+git log --oneline --decorate -5
+code V:\~prj\260503-codex-adoc-test</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">reference</span> Current Mental Model</summary>
+      <div class="content">
+        <ul>
+          <li>Edit <code>index.adoc</code>, <code>chapters/*.adoc</code>, and project CSS in <code>css/mixworx-adoc-demo.css</code>.</li>
+          <li>Do not edit <code>dist/</code> as source.</li>
+          <li>Use <code>deno task render</code> to regenerate HTML and PDF.</li>
+          <li>Use <code>V:</code> paths in user-facing notes and commands.</li>
+          <li>Use TortoiseGit or configured Git Credential Manager for GitHub auth if command-line push stalls.</li>
+        </ul>
+      </div>
+    </details>
+  </main>
+</body>
+</html>

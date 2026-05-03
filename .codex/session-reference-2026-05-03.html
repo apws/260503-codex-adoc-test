@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codex Session Reference - 2026-05-03</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #fff;
+      --ink: #172033;
+      --muted: #5d687b;
+      --line: #d8deea;
+      --accent: #143c5a;
+      --accent-2: #b45f30;
+      --code: #eef3f4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 24px clamp(18px, 4vw, 48px);
+      border-bottom: 5px solid var(--accent-2);
+    }
+
+    main {
+      width: min(1120px, calc(100vw - 32px));
+      margin: 24px auto 56px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 26px;
+    }
+
+    .sub {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    details {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 14px 0;
+      box-shadow: 0 8px 24px rgba(23, 32, 51, 0.07);
+      overflow: hidden;
+    }
+
+    details[open] summary {
+      border-bottom: 1px solid var(--line);
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 13px 16px;
+      color: var(--accent);
+      font-weight: 700;
+      list-style-position: inside;
+    }
+
+    .content {
+      padding: 16px;
+    }
+
+    h2 {
+      margin: 26px 0 10px;
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    ul {
+      margin-top: 8px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    code {
+      background: var(--code);
+      border-radius: 4px;
+      padding: 0.1em 0.35em;
+      font-family: Consolas, "Cascadia Mono", "Liberation Mono", monospace;
+      font-size: 0.92em;
+    }
+
+    pre {
+      margin: 12px 0;
+      padding: 12px 14px;
+      overflow: auto;
+      background: var(--code);
+      border-left: 5px solid var(--accent);
+      font: 13px/1.45 Consolas, "Cascadia Mono", "Liberation Mono", monospace;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.94em;
+    }
+
+    .ok {
+      color: #166534;
+      font-weight: 700;
+    }
+
+    .warn {
+      color: #9a3412;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Codex Session Reference</h1>
+    <p class="sub">AsciiDoc compact-pages demo, 2026-05-03, workspace <code>V:\~prj\260503-codex-adoc-test</code></p>
+  </header>
+
+  <main>
+    <p class="note">
+      This is a curated local reference for the session, not a byte-for-byte export of the Codex app UI.
+      It preserves the important context, decisions, commands, commits, and follow-up notes in collapsible sections.
+    </p>
+
+    <details open>
+      <summary>Session Ground Rules And Repo Context</summary>
+      <div class="content">
+        <ul>
+          <li>Workspace path for user-facing references: <code>V:\~prj\260503-codex-adoc-test</code>.</li>
+          <li>Underlying Windows path exists, but user asked to use the <code>V:</code> subst path in conversation.</li>
+          <li>Loaded project instructions: <code>AGENTS.md</code> at repo root.</li>
+          <li>Source of truth is AsciiDoc, especially <code>index.adoc</code> and <code>chapters/*.adoc</code>.</li>
+          <li>Generated output belongs in <code>dist/</code> and is ignored by git.</li>
+          <li>Initial constraint: no dependency installs; avoid changing Deno render pipeline unless explicitly requested.</li>
+          <li>Later the user explicitly requested integrating headless Chrome PDF generation into the build, so the render pipeline was updated.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Initial Formatting Fix</summary>
+      <div class="content">
+        <p>Task: fix formatting issues in the AsciiDoc/CSS demo.</p>
+        <ul>
+          <li>Moved real section headings such as <code>=== Rendered idea</code> outside panels.</li>
+          <li>Replaced an inner panel heading with an AsciiDoc block title.</li>
+          <li>Updated the audio/video page so it shows rendered media macros and full source syntax below.</li>
+          <li>Added CSS rules so listing/source blocks are not vertically clipped.</li>
+        </ul>
+        <p>Files committed:</p>
+        <ul>
+          <li><code>chapters/01-page-breaks-headings.adoc</code></li>
+          <li><code>chapters/10-audio-video-pass.adoc</code></li>
+          <li><code>chapters/11-custom-macros-future.adoc</code></li>
+          <li><code>css/mixworx-adoc-demo.css</code></li>
+        </ul>
+        <p>Commit:</p>
+        <pre>18b244c Fix AsciiDoc demo formatting</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>Wide Side-By-Side Diff Viewer</summary>
+      <div class="content">
+        <p>The chat table diff was too narrow, so a temporary local HTML diff viewer was created:</p>
+        <pre>V:\~prj\260503-codex-adoc-test\.codex\proposed-formatting-diff.html</pre>
+        <p class="note">This was not committed. It was only for local review.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Rendering And PDF Checks</summary>
+      <div class="content">
+        <p>Render command used:</p>
+        <pre>deno task render</pre>
+        <p>Important observations:</p>
+        <ul>
+          <li>Inside the sandbox, <code>deno</code> was initially not on PATH.</li>
+          <li>With approved execution, system Deno was available and render succeeded.</li>
+          <li>The generated HTML path is <code>dist/index.html</code>.</li>
+          <li>The generated PDF path later became <code>dist/AsciiDoc Feature Demo for Compact Pages.pdf</code>.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Page Break Investigation</summary>
+      <div class="content">
+        <p>The user saw unwanted breaks in the PDF. Source scan found chapter files with leading explicit page breaks:</p>
+        <pre>&lt;&lt;&lt;
+
+== Chapter heading</pre>
+        <p>Those were briefly removed from all chapter files, while preserving the <code>&lt;&lt;&lt;</code> inside the chapter 01 syntax example.</p>
+        <p>PDF inspection then showed that the real heading-only pages were caused by print CSS, not only source page-break markers.</p>
+        <p>Relevant CSS rules:</p>
+        <pre>css/mixworx-adoc-demo.css:
+h2 {
+  break-before: page;
+  page-break-before: always;
+}
+
+css/mixworx-golo.css:
+h2, h3 { page-break-before: always; }</pre>
+        <p>Fix applied in additive CSS:</p>
+        <pre>@media print {
+  h2, h3 {
+    break-before: auto;
+    page-break-before: auto;
+  }
+}</pre>
+        <p>The stale chapter 01 note was updated to say print mode keeps headings attached to content.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Explicit Chapter Page Breaks Restored</summary>
+      <div class="content">
+        <p>The user then asked for explicit AsciiDoc page breaks before each chapter heading, except the first root title at the start of <code>index.adoc</code>.</p>
+        <ul>
+          <li><code>index.adoc</code> still starts with root title <code>= AsciiDoc Feature Demo for Compact Pages</code>.</li>
+          <li>Each chapter file starts with <code>&lt;&lt;&lt;</code> before its <code>==</code> heading.</li>
+          <li>The print CSS still prevents <code>h2/h3</code> from being separated from their content by browser CSS rules.</li>
+        </ul>
+        <p>Commit that captured this state:</p>
+        <pre>41aaa84 no page break before first h1</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>VS Code And Codex Extension Notes</summary>
+      <div class="content">
+        <p>VS Code was launched on the project using the subst path:</p>
+        <pre>code V:\~prj\260503-codex-adoc-test</pre>
+        <p>The user asked whether the VS Code Codex extension would share this Codex app context.</p>
+        <p>Answer: not automatically. Treat the Codex app and VS Code extension as separate sessions unless context is explicitly synced.</p>
+        <p>Suggested handoff note:</p>
+        <pre>Repo: V:\~prj\260503-codex-adoc-test
+This is an AsciiDoc compact-pages demo.
+Do not install deps unless explicitly asked.
+Use .adoc as source of truth.
+dist/ is generated output.
+Current state: chapter page breaks use &lt;&lt;&lt;; print CSS neutralizes h2/h3 forced breaks.</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>Headless Chrome PDF Export Integration</summary>
+      <div class="content">
+        <p>The user explicitly asked to integrate headless Chrome PDF generation into the build.</p>
+        <p>Changes:</p>
+        <ul>
+          <li><code>scripts/render_adoc.ts</code> now finds Chrome/Edge, renders HTML, copies CSS/assets, and prints PDF.</li>
+          <li><code>deno.json</code> render/watch tasks now include <code>--allow-run</code>.</li>
+          <li><code>scripts/pdf-notes.md</code> now documents automated PDF export.</li>
+        </ul>
+        <p>No npm packages, Playwright, Puppeteer, Ruby, or <code>node_modules/</code> were added.</p>
+        <p>Verified:</p>
+        <ul>
+          <li><code>deno fmt</code> passed.</li>
+          <li><code>deno task check</code> passed after adding an explicit type cast for the Asciidoctor.js factory boundary.</li>
+          <li><code>deno task render</code> produced both HTML and PDF.</li>
+          <li>Generated PDF was readable and had 14 pages.</li>
+        </ul>
+        <p>Commit:</p>
+        <pre>b6246dd Add headless Chrome PDF export</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>Git Push And Auth Notes</summary>
+      <div class="content">
+        <p>Initial command-line <code>git push</code> timed out, probably waiting for auth.</p>
+        <p>Safe auth checks showed:</p>
+        <ul>
+          <li>Remote uses HTTPS: <code>https://github.com/apws/260503-codex-adoc-test.git</code>.</li>
+          <li>No credential helper was configured in repo, global, or system Git config.</li>
+          <li>TortoiseGit likely had its own working auth path.</li>
+        </ul>
+        <p>Later status showed the push had succeeded, likely via TortoiseGit:</p>
+        <pre>b6246dd (HEAD -&gt; main, origin/main, origin/HEAD) Add headless Chrome PDF export</pre>
+        <p class="ok">Final repo status at that point: clean and synced with origin.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Useful Commands</summary>
+      <div class="content">
+        <pre>cd V:\~prj\260503-codex-adoc-test
+
+deno task render
+deno task check
+git status --short --branch
+git log --oneline --decorate -5
+code V:\~prj\260503-codex-adoc-test</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>Current Mental Model</summary>
+      <div class="content">
+        <ul>
+          <li>Edit <code>index.adoc</code>, <code>chapters/*.adoc</code>, and project CSS in <code>css/mixworx-adoc-demo.css</code>.</li>
+          <li>Do not edit <code>dist/</code> as source.</li>
+          <li>Use <code>deno task render</code> to regenerate HTML and PDF.</li>
+          <li>Use <code>V:</code> paths in user-facing notes and commands.</li>
+          <li>Use TortoiseGit or configured Git Credential Manager for GitHub auth if command-line push stalls.</li>
+        </ul>
+      </div>
+    </details>
+  </main>
+</body>
+</html>
