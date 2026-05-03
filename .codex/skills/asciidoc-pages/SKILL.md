@@ -1,6 +1,7 @@
 # AsciiDoc Pages Skill
 
-Use this skill when the user asks for compact technical documentation, cheatsheets, page-like slides, manuals, or ebook-style guides based on AsciiDoc.
+Use this skill when the user asks for compact technical documentation,
+cheatsheets, page-like slides, manuals, or ebook-style guides based on AsciiDoc.
 
 ## Goal
 
@@ -10,7 +11,8 @@ Maintain a source-first AsciiDoc documentation system using:
 - `include::` for chapter/page composition
 - custom CSS for visual style
 - Deno 2 + Asciidoctor.js for HTML rendering
-- generated outputs under `dist/`
+- ebook source folders under `ebook/<ebook-name>/`
+- generated outputs under `dist/<ebook-name>/`
 
 ## Required behavior
 
@@ -21,7 +23,8 @@ Before changing files, report:
 3. exact render command
 4. whether `node_modules/` will be created
 
-Avoid `node_modules/` by default. Prefer Deno `npm:` imports and `nodeModulesDir: "none"`.
+Avoid `node_modules/` by default. Prefer Deno `npm:` imports and
+`nodeModulesDir: "none"`.
 
 ## Page pattern
 
@@ -44,7 +47,8 @@ AsciiDoc source example here.
 ....
 ```
 
-Use `....` as the delimiter when showing AsciiDoc examples that themselves contain `----` or `++++` blocks.
+Use `....` as the delimiter when showing AsciiDoc examples that themselves
+contain `----` or `++++` blocks.
 
 ## Output
 
@@ -52,6 +56,12 @@ Render with:
 
 ```bash
 deno task render
+```
+
+Render a specific ebook with:
+
+```bash
+deno task render <ebook-name>
 ```
 
 Then report:

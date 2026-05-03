@@ -4,14 +4,23 @@ import { dirname, fromFileUrl, join, toFileUrl } from "@std/path";
 
 const scriptDir = dirname(fromFileUrl(import.meta.url));
 const rootDir = dirname(scriptDir);
-const inputRel = Deno.args[0] ?? "index.adoc";
-const inputPath = join(rootDir, inputRel);
-const distDir = join(rootDir, "dist");
+const ebookName = Deno.args[0] ?? "cs-adoc-features";
+const ebookDir = join(rootDir, "ebook", ebookName);
+const inputPath = join(ebookDir, "index.adoc");
+const distRootDir = join(rootDir, "dist");
+const distDir = join(distRootDir, ebookName);
 const outputPath = join(distDir, "index.html");
-const pdfOutputPath = join(
-  distDir,
-  "AsciiDoc Feature Demo for Compact Pages.pdf",
-);
+let pdfOutputPath = join(distDir, `${ebookName}.pdf`);
+
+function sanitizeFileName(value: string): string {
+  return value.replace(/[<>:"/\\|?*\x00-\x1F]/g, "").trim() || "ebook";
+}
+
+async function readDocumentTitle(): Promise<string> {
+  const source = await Deno.readTextFile(inputPath);
+  const titleLine = source.split(/\r?\n/).find((line) => line.startsWith("= "));
+  return titleLine ? titleLine.slice(2).trim() : ebookName;
+}
 
 function fail(message: string): never {
   console.error(`ERROR: ${message}`);
@@ -62,6 +71,10 @@ async function printPdf(): Promise<void> {
   }
 
   console.log(`- pdf browser: ${browserPath}`);
+  pdfOutputPath = join(
+    distDir,
+    `${sanitizeFileName(await readDocumentTitle())}.pdf`,
+  );
   console.log(`- pdf output: ${pdfOutputPath}`);
 
   const command = new Deno.Command(browserPath, {
@@ -90,22 +103,24 @@ if (!(await exists(inputPath))) {
 await ensureDir(distDir);
 
 const asciidoctor = (AsciidoctorFactory as unknown as () => {
-  convertFile: (inputPath: string, options: Record<string, unknown>) => void;
+  convertFile: (inputPath: string, options: Record<string, unknown>) => string;
 })();
 
 console.log("AsciiDoc render pipeline");
 console.log(`- runtime: Deno ${Deno.version.deno}`);
 console.log("- renderer: Asciidoctor.js via npm:asciidoctor");
 console.log("- node_modules: disabled by deno.json nodeModulesDir=none");
+console.log(`- ebook: ${ebookName}`);
+console.log(`- ebook dir: ${ebookDir}`);
 console.log(`- input: ${inputPath}`);
 console.log(`- output: ${outputPath}`);
 
-asciidoctor.convertFile(inputPath, {
+const html = asciidoctor.convertFile(inputPath, {
   safe: "safe",
   backend: "html5",
-  base_dir: rootDir,
-  to_file: outputPath,
-  mkdirs: true,
+  header_footer: true,
+  base_dir: ebookDir,
+  to_file: false,
   attributes: {
     "showtitle": "",
     "toc": "left",
@@ -124,14 +139,16 @@ asciidoctor.convertFile(inputPath, {
   },
 });
 
+await Deno.writeTextFile(outputPath, html);
+
 // LinkCSS means the generated HTML points to css/... and assets/...
 // Copy those folders into dist so dist/index.html is portable.
 for (const folder of ["css", "assets"]) {
-  const src = join(rootDir, folder);
+  const src = join(ebookDir, folder);
   const dst = join(distDir, folder);
   if (await exists(src)) {
     await copy(src, dst, { overwrite: true });
-    console.log(`- copied: ${folder}/ -> dist/${folder}/`);
+    console.log(`- copied: ${folder}/ -> dist/${ebookName}/${folder}/`);
   }
 }
 

@@ -2,8 +2,14 @@
 
 `deno task render` now renders both:
 
-1. `dist/index.html`
-2. `dist/AsciiDoc Feature Demo for Compact Pages.pdf`
+1. `dist/<ebook-name>/index.html`
+2. `dist/<ebook-name>/<document-title>.pdf`
+
+The default ebook is `cs-adoc-features`. Render another ebook with:
+
+```powershell
+deno task render <ebook-name>
+```
 
 PDF export uses installed Chrome / Edge in headless mode, so it keeps the
 browser CSS path without adding Playwright, Puppeteer, Ruby, or `node_modules/`.

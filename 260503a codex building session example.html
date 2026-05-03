@@ -171,6 +171,7 @@
           <li><code>~20:55</code> Updated the <code>savechat</code> skill so bare <code>savechat</code> updates the newest project-root <code>YYMMDDx *.html</code> log.</li>
           <li><code>~21:00</code> Reviewed project-local <code>.codex/skills/asciidoc-pages</code> and clarified that it was scaffolded/versioned but not actively loaded as a Codex skill in this session.</li>
           <li><code>~21:05</code> First bare <code>savechat</code> invocation selected this newest root <code>YYMMDDx *.html</code> log and updated it in place.</li>
+          <li><code>~21:10</code> TortoiseGit push synced local commits to <code>origin/main</code>; CLI still saw one line-ending-only local diff.</li>
         </ul>
       </div>
     </details>
@@ -500,6 +501,25 @@ OK      pypdf    pypdf; fallback PDF text/page inspection</pre>
         <pre>V:\~prj\260503-codex-adoc-test\260503a codex building session example.html</pre>
         <p class="note">
           This validates the intended plain-language trigger pattern, though newly created global skills may still require a fresh Codex session before they show in the active skills list automatically.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="time">~21:10</span> Sync And Line Ending Note</summary>
+      <div class="content">
+        <p>After using TortoiseGit, Git CLI showed the branch synced with upstream:</p>
+        <pre>## main...origin/main
+8d9bef8 (HEAD -&gt; main, origin/main, origin/HEAD) codex enhancements tips, tools, savechat skill</pre>
+        <p>One local file still appeared modified to CLI Git:</p>
+        <pre>M tools/savechat-skill/agents/openai.yaml</pre>
+        <p>The diff showed no semantic content change, only line-ending differences:</p>
+        <pre>interface:
+  display_name: "Savechat"
+  short_description: "Save/update collapsible session logs"
+  default_prompt: "savechat YYMMDDx topic"</pre>
+        <p class="note">
+          TortoiseGit may hide or normalize line-ending-only changes, while CLI Git still reports them. The repo commits are synced upstream; this is a local working-tree cleanliness detail.
         </p>
       </div>
     </details>

@@ -1,12 +1,14 @@
 # AGENTS.md — AsciiDoc page/sheet documentation project
 
-This repository uses AsciiDoc as the source format for compact technical guides, cheatsheets, and page-like documentation.
+This repository uses AsciiDoc as the source format for compact technical guides,
+cheatsheets, and page-like documentation.
 
 ## Source of truth
 
 - Keep `.adoc` files as the source of truth.
-- Root document is `index.adoc`.
-- Chapters/pages live under `chapters/`.
+- Ebook sources live under `ebook/<ebook-name>/`.
+- Current ebook root document is `ebook/cs-adoc-features/index.adoc`.
+- Chapters/pages live under each ebook's `chapters/` folder.
 - Use `include::` to compose larger documents.
 - Do not convert AsciiDoc to Markdown unless explicitly asked.
 
@@ -14,24 +16,30 @@ This repository uses AsciiDoc as the source format for compact technical guides,
 
 - Prefer Deno 2.
 - Prefer Asciidoctor.js via Deno `npm:` imports.
-- Do not create `package.json` or `node_modules/` unless the user explicitly approves.
-- Deno config should keep `nodeModulesDir` as `none` unless a package truly requires local Node modules.
+- Do not create `package.json` or `node_modules/` unless the user explicitly
+  approves.
+- Deno config should keep `nodeModulesDir` as `none` unless a package truly
+  requires local Node modules.
 
 ## Styling
 
-- Use `css/mixworx-golo.css` as the personal/base theme when present.
-- Use `css/mixworx-adoc-demo.css` for additive project-specific page, heading, panel, note, and print styles.
-- Preferred style: compact technical guide, inverted dark heading bars, high visual section separation, strong h1/h2/h3 hierarchy.
+- Use each ebook's `css/mixworx-golo.css` as the personal/base theme when
+  present.
+- Use each ebook's `css/mixworx-adoc-demo.css` for additive project-specific
+  page, heading, panel, note, and print styles.
+- Preferred style: compact technical guide, inverted dark heading bars, high
+  visual section separation, strong h1/h2/h3 hierarchy.
 
 ## Outputs
 
-- Generated outputs go into `dist/`.
+- Generated outputs go into `dist/<ebook-name>/`.
 - Do not treat generated HTML/PDF/images as source.
 - Do not commit `dist/` unless the user explicitly asks.
 
 ## Before doing work
 
-Before installing dependencies, changing renderer, or generating many files, explain:
+Before installing dependencies, changing renderer, or generating many files,
+explain:
 
 1. renderer/runtime used
 2. source files to be changed
@@ -43,8 +51,9 @@ Then wait for confirmation.
 
 ## Common tasks
 
-- Render HTML: `deno task render`
-- Watch/render: `deno task watch`
+- Render default ebook: `deno task render`
+- Render a specific ebook: `deno task render <ebook-name>`
+- Watch/render default ebook: `deno task watch`
 - Clean output: `deno task clean`
 
 ## Documentation pattern
