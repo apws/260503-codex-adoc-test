@@ -1,0 +1,9 @@
+This scaffold does not overwrite css/mixworx-golo.css.
+
+Your GitHub repository already contains css/mixworx-golo.css.
+The demo stylesheet css/mixworx-adoc-demo.css imports it:
+
+  @import url("./mixworx-golo.css");
+
+If you use this scaffold in a new empty folder, either copy your real mixworx-golo.css here,
+or keep using mixworx-adoc-demo.css alone as a fallback.

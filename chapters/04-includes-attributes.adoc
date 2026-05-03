@@ -1,0 +1,30 @@
+<<<
+
+== 04 Includes and attributes
+
+[.page-sheet]
+****
+AsciiDoc can split a book/manual into small files while keeping one root source.
+
+[.syntax-card]
+Current document uses attributes such as:
+
+[horizontal]
+stylesheet:: `{stylesheet}`
+imagesdir:: `{imagesdir}`
+source-highlighter:: `{source-highlighter}`
+
+.Included snippet below
+include::../includes/snippets/toolchain-summary.adoc[]
+****
+
+.Syntax
+[source,asciidoc]
+----
+:stylesheet: css/mixworx-adoc-demo.css
+:imagesdir: assets
+:source-highlighter: highlight.js
+
+include::chapters/04-includes-attributes.adoc[]
+include::includes/snippets/toolchain-summary.adoc[]
+----

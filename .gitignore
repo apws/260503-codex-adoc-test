@@ -1,11 +1,19 @@
-# Deno
-# https://deno.com/
+# generated output
+dist/
+*.pdf
+*.pptx
+*.png
+*.log
 
-# Cache directory (when using project-local DENO_DIR)
-# https://docs.deno.com/runtime/fundamentals/setup/#deno_dir
+# dependency/cache folders that should not be source
+node_modules/
+.pnpm-store/
+.yarn/
 .deno/
 
-# Coverage reports
-# https://docs.deno.com/runtime/reference/cli/coverage/
-coverage/
-*.lcov
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

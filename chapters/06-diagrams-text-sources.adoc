@@ -1,0 +1,31 @@
+<<<
+
+== 06 Text diagram sources: Mermaid, PlantUML, Graphviz
+
+[.page-sheet]
+****
+AsciiDoc can hold diagram source directly. Rendering those blocks needs an extra diagram extension or external renderer.
+
+[.warning-card]
+This scaffold does **not** install diagram renderers yet. It demonstrates the source pattern only, to avoid a heavy first toolchain.
+
+[source,mermaid]
+----
+flowchart LR
+  ADOC[index.adoc] --> CSS[CSS theme]
+  ADOC --> SVG[SVG diagrams]
+  ADOC --> HTML[dist/index.html]
+  HTML --> PDF[Chrome print-to-PDF]
+----
+****
+
+.Syntax
+[source,asciidoc]
+....
+[source,mermaid]
+----
+flowchart LR
+  ADOC[index.adoc] --> HTML[dist/index.html]
+  HTML --> PDF[Chrome print-to-PDF]
+----
+....

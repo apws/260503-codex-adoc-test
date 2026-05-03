@@ -1,0 +1,24 @@
+<<<
+
+== 05 Images, SVG, and Excalidraw source
+
+[.page-sheet]
+****
+Block images can embed PNG/JPG/GIF/SVG. The clean diagram path is:
+
+[.compact-list]
+* `assets/excalidraw/*.excalidraw` — editable diagram scene
+* `assets/diagrams/*.svg` — exported scalable image
+* `image::...[]` — embedded into the AsciiDoc page
+
+image::diagrams/codex-mental-model.svg[Codex mental model,width=90%]
+****
+
+.Syntax
+[source,asciidoc]
+----
+image::diagrams/codex-mental-model.svg[Codex mental model,width=90%]
+
+// Editable source can live next to the exported SVG:
+// assets/excalidraw/codex-mental-model.excalidraw
+----

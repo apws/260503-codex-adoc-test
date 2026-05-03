@@ -1,0 +1,47 @@
+<<<
+
+== 07 Tables, lists, and compact QA grids
+
+[.page-sheet]
+****
+.AsciiDoc feature menu
+[cols="1,2,2", options="header"]
+|===
+|Feature |Use |This project
+
+|Includes
+|Split long books/manuals into files
+|`chapters/*.adoc`
+
+|Images
+|Embed SVG/PNG/JPG assets
+|`assets/diagrams/*.svg`
+
+|CSS roles
+|Project-specific panels and page grids
+|`.feature-card`, `.page-sheet`
+
+|Highlighting
+|Readable code and custom DSL examples
+|`highlight.js`
+|===
+
+.Checklist
+* [x] Source is text
+* [x] CSS controls visual language
+* [x] Output is generated
+* [ ] PDF automation later
+****
+
+.Syntax
+[source,asciidoc]
+----
+[cols="1,2,2", options="header"]
+|===
+|Feature |Use |This project
+|Includes |Split documents |chapters/*.adoc
+|===
+
+* [x] Source is text
+* [ ] PDF automation later
+----

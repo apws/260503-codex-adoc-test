@@ -1,0 +1,36 @@
+<<<
+
+== 11 Future custom macros / renderers
+
+[.page-sheet]
+****
+The long-term interesting path is a project-specific macro layer.
+
+.Possible future source syntax
+[source,asciidoc]
+----
+excalidraw::assets/excalidraw/codex-mental-model.excalidraw[format=svg,width=90%]
+
+sequick::patterns/basic-rock.seq[theme=compact,width=100%]
+----
+
+.Possible rendering meaning
+[.compact-list]
+* read external source file
+* render it to SVG/PNG/HTML
+* insert the rendered result into the document
+* keep the original source diffable and editable
+
+[.warning-card]
+Not implemented in this scaffold. This page is a design placeholder for a later Codex skill or Asciidoctor extension.
+****
+
+.Syntax
+[source,asciidoc]
+----
+// Future custom macro idea:
+excalidraw::assets/excalidraw/codex-mental-model.excalidraw[format=svg,width=90%]
+
+// Future custom music/grid macro idea:
+sequick::patterns/basic-rock.seq[theme=compact,width=100%]
+----

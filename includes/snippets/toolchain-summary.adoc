@@ -1,0 +1,6 @@
+[horizontal]
+Chrome preview:: open `index.adoc` with the Asciidoctor.js browser extension.
+Deno render:: `deno task render` creates `dist/index.html`.
+CSS theme:: `css/mixworx-adoc-demo.css` imports `css/mixworx-golo.css`.
+PDF path:: open generated HTML and use browser print-to-PDF.
+Codex role:: edit source files, explain renderer choices, avoid hidden `node_modules/`.

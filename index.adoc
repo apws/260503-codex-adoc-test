@@ -1,0 +1,46 @@
+= AsciiDoc Feature Demo for Compact Pages
+Petr Antos / mixworx draft
+:doctype: book
+:encoding: utf-8
+:lang: en
+:toc: left
+:toclevels: 3
+:sectnums:
+:sectnumlevels: 3
+:icons: font
+:experimental:
+:source-highlighter: highlight.js
+:highlightjs-languages: asciidoc,css,javascript,typescript,json,bash,mermaid,xml,yaml,toml
+:stylesheet: css/mixworx-adoc-demo.css
+:linkcss:
+:imagesdir: assets
+:stem: latexmath
+:xrefstyle: short
+:version-label!:
+
+[.small-note]
+This is a source-oriented demo for compact technical pages. It is intentionally page-like, not marketing-slide-like.
+
+include::chapters/00-orientation.adoc[]
+
+include::chapters/01-page-breaks-headings.adoc[]
+
+include::chapters/02-admonitions-panels.adoc[]
+
+include::chapters/03-source-code-highlight.adoc[]
+
+include::chapters/04-includes-attributes.adoc[]
+
+include::chapters/05-images-svg-excalidraw.adoc[]
+
+include::chapters/06-diagrams-text-sources.adoc[]
+
+include::chapters/07-tables-lists-qa.adoc[]
+
+include::chapters/08-ui-macros-footnotes-xrefs.adoc[]
+
+include::chapters/09-math-stem.adoc[]
+
+include::chapters/10-audio-video-pass.adoc[]
+
+include::chapters/11-custom-macros-future.adoc[]

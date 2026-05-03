@@ -1,0 +1,31 @@
+<<<
+
+== 09 Math / stem blocks
+
+[.page-sheet]
+****
+AsciiDoc supports inline and block mathematical notation through `stem`.
+
+Inline example: stem:[E = mc^2].
+
+[stem]
+++++
+PV = nRT
+++++
+
+[.small-note]
+The exact browser rendering depends on MathJax/STEM configuration. This page is a placeholder to test your preferred setup.
+****
+
+.Syntax
+[source,asciidoc]
+----
+:stem: latexmath
+
+Inline example: stem:[E = mc^2].
+
+[stem]
+++++
+PV = nRT
+++++
+----

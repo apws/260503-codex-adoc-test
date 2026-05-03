@@ -1,0 +1,196 @@
+/*
+  Additive demo stylesheet for the AsciiDoc page/sheet scaffold.
+  It intentionally imports Petr's existing base theme if present.
+  If css/mixworx-golo.css is missing, the import fails harmlessly.
+*/
+@import url("./mixworx-golo.css");
+
+:root {
+  --mw-ink: #111827;
+  --mw-muted: #5b6777;
+  --mw-paper: #f7f3ea;
+  --mw-panel: #ffffff;
+  --mw-blue: #143c5a;
+  --mw-blue2: #1f5c78;
+  --mw-black: #101820;
+  --mw-orange: #b45f30;
+  --mw-gold: #e0b646;
+  --mw-green: #2d6a4f;
+  --mw-red: #9c3d33;
+  --mw-rule: #c8c2b7;
+  --mw-code: #eef3f4;
+}
+
+html, body {
+  background: var(--mw-paper);
+}
+
+body {
+  color: var(--mw-ink);
+}
+
+#header, #content, #footnotes, #footer {
+  max-width: 1180px;
+}
+
+#content {
+  background: rgba(255, 255, 255, 0.58);
+  padding: 1.2rem 1.6rem 3rem;
+  box-shadow: 0 10px 28px rgba(16, 24, 32, 0.08);
+}
+
+/* Inverted section bars: compact quick-guide style. */
+h1, h2, h3, h4 {
+  font-family: "Varela Round", "Open Sans", system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3 {
+  color: #fff !important;
+  line-height: 1.22;
+  padding: 0.28em 0.65em;
+  border-radius: 2px;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.16);
+}
+
+h1 {
+  background: var(--mw-black);
+  border-left: 18px solid var(--mw-gold);
+}
+
+h2 {
+  background: var(--mw-blue);
+  border-left: 13px solid var(--mw-gold);
+  margin-top: 2.1rem;
+}
+
+h3 {
+  background: var(--mw-blue2);
+  border-left: 9px solid var(--mw-orange);
+  margin-top: 1.5rem;
+}
+
+h4 {
+  color: var(--mw-blue);
+  border-bottom: 2px solid var(--mw-rule);
+  padding-bottom: 0.15rem;
+}
+
+/* Explicit pages/sheets. */
+.page-sheet {
+  background: var(--mw-panel);
+  border: 1px solid var(--mw-rule);
+  box-shadow: 0 6px 18px rgba(16, 24, 32, 0.08);
+  padding: 1rem 1.15rem;
+  margin: 1rem 0 1.4rem;
+}
+
+.feature-card, .syntax-card, .warning-card, .source-card {
+  border: 1px solid var(--mw-rule);
+  background: #fff;
+  padding: 0.9rem 1rem;
+  margin: 0.9rem 0;
+}
+
+.feature-card {
+  border-left: 8px solid var(--mw-green);
+}
+
+.syntax-card {
+  border-left: 8px solid var(--mw-blue2);
+}
+
+.warning-card {
+  border-left: 8px solid var(--mw-red);
+}
+
+.source-card {
+  border-left: 8px solid var(--mw-orange);
+}
+
+.compact-list ul, .compact-list ol {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.small-note {
+  color: var(--mw-muted);
+  font-size: 0.88rem;
+}
+
+.big-key {
+  display: inline-block;
+  font-weight: 700;
+  color: #fff;
+  background: var(--mw-black);
+  padding: 0.12rem 0.45rem;
+  border-radius: 2px;
+}
+
+.kbd, kbd {
+  font-family: "Ubuntu Mono", Consolas, monospace;
+  background: #f2f2f2;
+  border: 1px solid #bbb;
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  padding: 0.05rem 0.3rem;
+}
+
+.literalblock pre, .listingblock pre, pre.highlight {
+  background: var(--mw-code) !important;
+  border: 1px solid #ccd6dd;
+  border-left: 6px solid var(--mw-blue2);
+  padding: 0.75rem 0.9rem;
+  line-height: 1.28;
+}
+
+code, pre, kbd, samp {
+  font-family: "Ubuntu Mono", Consolas, "Liberation Mono", monospace;
+}
+
+/* Simple two-column demos for landscape sheets. */
+.mw-grid-2 > .content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.mw-grid-3 > .content {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  align-items: start;
+}
+
+/* Print/PDF: each main section can behave like a page. */
+@media print {
+  body {
+    background: white;
+  }
+
+  #toc, #footer {
+    display: none !important;
+  }
+
+  #content {
+    max-width: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  h2 {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .page-sheet, .feature-card, .syntax-card, .warning-card, .source-card {
+    box-shadow: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a[href]::after {
+    content: "";
+  }
+}

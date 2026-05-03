@@ -1,0 +1,34 @@
+<<<
+
+== 00 Orientation: what this scaffold is
+
+[.page-sheet]
+****
+[.feature-card]
+The target is a **text-source document system** for compact pages/sheets:
+
+[.compact-list]
+* source: `.adoc`
+* style: custom CSS with inverted heading bars
+* preview: Chrome Asciidoctor.js extension or generated HTML
+* automation: Deno 2 + Asciidoctor.js
+* diagrams: SVG/PNG assets, Excalidraw source, text diagram source
+* PDF: browser print-to-PDF first
+
+include::../includes/snippets/toolchain-summary.adoc[]
+****
+
+.Syntax shown by this page
+[source,asciidoc]
+----
+= AsciiDoc Feature Demo for Compact Pages
+:toc: left
+:sectnums:
+:experimental:
+:source-highlighter: highlight.js
+:stylesheet: css/mixworx-adoc-demo.css
+:linkcss:
+:imagesdir: assets
+
+include::chapters/00-orientation.adoc[]
+----

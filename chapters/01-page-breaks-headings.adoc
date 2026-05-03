@@ -1,0 +1,29 @@
+<<<
+
+== 01 Explicit pages and inverted headings
+
+[.page-sheet]
+****
+=== Rendered idea
+
+This section starts after an explicit page break marker. The stylesheet makes `h1`, `h2`, and `h3` into inverted heading bars.
+
+==== Fourth-level heading
+
+Lower-level headings can stay lighter, useful for dense manuals.
+
+[.small-note]
+Print mode in the demo CSS also forces `h2` to start on a new printed page.
+****
+
+.Syntax
+[source,asciidoc]
+----
+<<<
+
+== 01 Explicit pages and inverted headings
+
+=== Rendered idea
+
+==== Fourth-level heading
+----

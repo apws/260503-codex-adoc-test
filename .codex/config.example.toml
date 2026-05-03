@@ -1,0 +1,10 @@
+# Copy/merge into your Codex config only if useful.
+# This is intentionally conservative for a local documentation repo.
+
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+default_permissions = ":workspace"
+
+[windows]
+# OpenAI docs recommend elevated for the native Windows sandbox when available.
+sandbox = "elevated"

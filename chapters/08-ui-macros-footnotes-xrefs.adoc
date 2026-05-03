@@ -1,0 +1,27 @@
+<<<
+
+== 08 UI macros, footnotes, and cross references
+
+[.page-sheet]
+****
+For software/app guides, UI macros are clearer than plain text.
+
+Press kbd:[Ctrl+Shift+P], click btn:[Export], then choose menu:File[Print > Save as PDF].
+
+This sentence has a footnote.footnote:[Footnotes are useful for source notes, caveats, or compact secondary details.]
+
+Cross reference back to <<_05_images_svg_and_excalidraw_source,images and Excalidraw>>.
+****
+
+.Syntax
+[source,asciidoc]
+----
+:experimental:
+
+Press kbd:[Ctrl+Shift+P], click btn:[Export],
+then choose menu:File[Print > Save as PDF].
+
+This sentence has a footnote.footnote:[Footnote text.]
+
+Cross reference to <<_05_images_svg_and_excalidraw_source,images and Excalidraw>>.
+----

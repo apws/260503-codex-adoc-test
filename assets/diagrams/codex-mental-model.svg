@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="260" viewBox="0 0 960 260" role="img" aria-labelledby="title desc">
+  <title id="title">Codex documentation workflow mental model</title>
+  <desc id="desc">AsciiDoc source is styled with CSS, combined with assets, rendered by Deno and Asciidoctor.js to HTML, then printed to PDF.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#143c5a" />
+    </marker>
+    <style>
+      .box { fill: #ffffff; stroke: #143c5a; stroke-width: 2; rx: 8; }
+      .dark { fill: #101820; stroke: #101820; }
+      .label { font: 700 18px system-ui, sans-serif; fill: #111827; }
+      .darkLabel { font: 700 18px system-ui, sans-serif; fill: #ffffff; }
+      .small { font: 13px system-ui, sans-serif; fill: #5b6777; }
+      .arrow { stroke: #143c5a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect x="20" y="36" width="150" height="90" class="dark" rx="8" />
+  <text x="95" y="76" text-anchor="middle" class="darkLabel">index.adoc</text>
+  <text x="95" y="101" text-anchor="middle" class="darkLabel">+ chapters</text>
+
+  <rect x="215" y="36" width="150" height="90" class="box" />
+  <text x="290" y="76" text-anchor="middle" class="label">CSS theme</text>
+  <text x="290" y="101" text-anchor="middle" class="small">inverted bars</text>
+
+  <rect x="410" y="36" width="150" height="90" class="box" />
+  <text x="485" y="76" text-anchor="middle" class="label">Assets</text>
+  <text x="485" y="101" text-anchor="middle" class="small">SVG / PNG</text>
+
+  <rect x="605" y="36" width="150" height="90" class="box" />
+  <text x="680" y="76" text-anchor="middle" class="label">Deno 2</text>
+  <text x="680" y="101" text-anchor="middle" class="small">Asciidoctor.js</text>
+
+  <rect x="800" y="36" width="140" height="90" class="dark" rx="8" />
+  <text x="870" y="76" text-anchor="middle" class="darkLabel">HTML</text>
+  <text x="870" y="101" text-anchor="middle" class="darkLabel">PDF later</text>
+
+  <path d="M170 81 H215" class="arrow" />
+  <path d="M365 81 H410" class="arrow" />
+  <path d="M560 81 H605" class="arrow" />
+  <path d="M755 81 H800" class="arrow" />
+
+  <text x="20" y="180" class="small">Source stays diffable. Generated output stays disposable. Diagrams can be edited visually in Excalidraw and exported to SVG for embedding.</text>
+  <rect x="20" y="205" width="920" height="28" fill="#e9efe8" stroke="#c8c2b7" />
+  <text x="34" y="224" class="small">Rule: ask Codex to explain the renderer/runtime before installing anything or creating large dependency folders.</text>
+</svg>

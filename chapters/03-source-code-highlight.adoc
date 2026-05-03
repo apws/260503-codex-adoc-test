@@ -1,0 +1,46 @@
+<<<
+
+== 03 Source blocks, highlight.js, and callouts
+
+[.page-sheet]
+****
+[source,typescript]
+----
+type Runtime = "chrome-extension" | "deno" | "codex";
+
+export function render(source: string, runtime: Runtime): string {
+  return `${runtime}: ${source}`; // <1>
+}
+----
+<1> Callouts annotate exact lines below the block.
+
+[source,sequick]
+----
+bar 01:
+  kick  x--- x--x ---- x---
+  snare ---- x--- ---- x---
+  hat   x-x- x-x- x-x- x-x-
+----
+
+[.small-note]
+`sequick` is not a built-in highlight.js language here; this demonstrates where a custom DSL highlighter could plug in later.
+****
+
+.Syntax
+[source,asciidoc]
+....
+[source,typescript]
+----
+type Runtime = "chrome-extension" | "deno" | "codex";
+export function render(source: string, runtime: Runtime): string {
+  return `${runtime}: ${source}`; // <1>
+}
+----
+<1> Callout text.
+
+[source,sequick]
+----
+bar 01:
+  kick  x--- x--x ---- x---
+----
+....

@@ -1,0 +1,49 @@
+<<<
+
+== 02 Admonitions, sidebars, and CSS panels
+
+[.page-sheet]
+****
+TIP: Admonitions are semantic attention blocks. CSS can turn them into colored guide panels.
+
+IMPORTANT: Keep them short in cheatsheet-style documents.
+
+[WARNING]
+====
+Longer admonition block.
+It can contain lists, code, images, and multiple paragraphs.
+====
+
+[sidebar]
+.Sidebar / sidenote panel
+****
+Useful for background remarks, footnotes expanded in place, or small implementation notes.
+****
+
+[.feature-card]
+****
+A role-based custom panel using `[.feature-card]` plus a block.
+****
+****
+
+.Syntax
+[source,asciidoc]
+----
+TIP: Short semantic tip.
+
+[WARNING]
+====
+Longer warning block.
+====
+
+[sidebar]
+.Sidebar / sidenote panel
+****
+Sidebar content.
+****
+
+[.feature-card]
+****
+Custom CSS role panel.
+****
+----
