@@ -13,7 +13,7 @@ This section starts after an explicit page break marker. The stylesheet makes `h
 Lower-level headings can stay lighter, useful for dense manuals.
 
 [.small-note]
-Print mode in the demo CSS also forces `h2` to start on a new printed page.
+Print mode keeps headings attached to their content instead of forcing a new printed page.
 ****
 
 .Syntax

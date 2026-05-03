@@ -170,7 +170,7 @@ code, pre, kbd, samp {
   align-items: start;
 }
 
-/* Print/PDF: each main section can behave like a page. */
+/* Print/PDF: keep headings attached to their content. */
 @media print {
   body {
     background: white;
@@ -186,9 +186,9 @@ code, pre, kbd, samp {
     padding: 0;
   }
 
-  h2 {
-    break-before: page;
-    page-break-before: always;
+  h2, h3 {
+    break-before: auto;
+    page-break-before: auto;
   }
 
   .page-sheet, .feature-card, .syntax-card, .warning-card, .source-card {
