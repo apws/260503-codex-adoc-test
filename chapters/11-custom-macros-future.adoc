@@ -2,6 +2,8 @@
 
 == 11 Future custom macros / renderers
 
+=== Rendered idea
+
 [.page-sheet]
 ****
 The long-term interesting path is a project-specific macro layer.

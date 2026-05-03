@@ -2,16 +2,15 @@
 
 == 10 Audio, video, and passthrough HTML
 
+=== Rendered idea
+
 [.page-sheet]
 ****
 AsciiDoc can reference media assets in HTML output.
 
-[source,asciidoc]
-----
 audio::audio/example.mp3[]
 video::video/demo.mp4[width=640]
 video::kZH9JtPBq7k[youtube]
-----
 
 Passthrough blocks are available for backend-specific HTML, but they reduce portability.
 
@@ -25,6 +24,10 @@ Passthrough blocks are available for backend-specific HTML, but they reduce port
 .Syntax
 [source,asciidoc]
 ----
+audio::audio/example.mp3[]
+video::video/demo.mp4[width=640]
+video::kZH9JtPBq7k[youtube]
+
 ++++
 <div class="feature-card">
   <strong>Passthrough demo:</strong> raw HTML inserted by the source.
